@@ -33,7 +33,7 @@ public enum Coverage {
             let report = try xcodeBuildCoverageParser.coverage(xcresultBundlePath: xcresultBundlePath, files: paths, excludedTargets: excludedTargets, hideProjectCoverage: hideProjectCoverage)
             sendReport(report, minumumCoverage: minimumCoverage, danger: danger)
         } catch {
-            danger.fail("Failed to get the coverage - Error: \(error.localizedDescription)")
+            danger.fail("Failed to get the coverage - Error: \(String(describing: error))")
             return
         }
     }
